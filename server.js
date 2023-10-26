@@ -4,8 +4,9 @@ const mongoose = require("mongoose");
 const productRoute = require("./routes/productRoute");
 const errorMiddleware = require("./middleware/errorMiddleware");
 var cors = require("cors");
+var app = express();
 
-const app = express();
+app.use(cors());
 
 const PORT = process.env.PORT || 3000;
 const MONGO_URL = process.env.MONGO_URL;

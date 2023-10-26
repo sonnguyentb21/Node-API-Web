@@ -19,7 +19,10 @@ const getProduct = asyncHandler(
   async (req, res) => {
     try {
       const { id } = req.params;
-      const product = await Product.findById(id);
+      const product = await Product.findById(
+        id,
+        req.body
+      );
       res.status(200).json(product);
     } catch (error) {
       res.status(500);
@@ -61,7 +64,7 @@ const updateProduct = asyncHandler(
         );
       }
       const updatedProduct =
-        await Product.findByAndId(id);
+        await Product.findById(id);
       res.status(200).json(updatedProduct);
     } catch (error) {
       res.status(500);
